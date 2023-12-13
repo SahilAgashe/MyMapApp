@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MyBookingViewController.swift
 //  MyApp
 //
 //  Created by SAHIL AMRUT AGASHE on 12/12/23.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MyBookingViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .cyan
     }
-
-
+    
 }
-
