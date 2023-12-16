@@ -13,7 +13,7 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundColor = .systemGroupedBackground
+        tabBar.backgroundColor = .white
         
         let mapNav = navController(rootViewController: MapViewController(), title: "Map", image: UIImage(systemName: "mappin.and.ellipse.circle"), SelectedImage: UIImage(systemName: "mappin.and.ellipse.circle.fill"))
 
@@ -29,8 +29,7 @@ class MainTabController: UITabBarController {
         nav.tabBarItem = tabBarItem
         return nav
     }
-    
-    
+
 }
 
 

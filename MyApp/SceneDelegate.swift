@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = MainTabController()
         window?.makeKeyAndVisible()
+        print("DEBUG: \(RealmManager.shared.databasePath)")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

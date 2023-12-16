@@ -14,6 +14,7 @@ class MapViewController: UIViewController {
     private lazy var mapView: MKMapView = {
         let mv = MKMapView()
         mv.translatesAutoresizingMaskIntoConstraints = false
+        mv.delegate = self
         return mv
     }()
     
@@ -33,6 +34,28 @@ class MapViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+        
+        mapView.addAnnotations(myAnnotations)
+        let region = MKCoordinateRegion(center: Nagpur.coordinate, latitudinalMeters: 1000000, longitudinalMeters: 1000000)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 }
+
+// MARK: - MKMapViewDelegate
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        let formVC = FormViewController()
+        formVC.modalPresentationStyle = .fullScreen
+        formVC.modalTransitionStyle = .partialCurl
+        self.navigationController?.pushViewController(formVC, animated: true)
+    }
+}
+
